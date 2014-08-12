@@ -1,0 +1,16 @@
+NameVirtualHost *:8025
+Listen 8025
+
+<VirtualHost *:8025>
+
+  <Proxy *>
+        Order deny,allow
+        Allow from all
+  </Proxy>
+
+  ProxyRequests Off
+  ProxyPassReverse / http://127.0.0.1:1080/
+  ProxyPass / http://127.0.0.1:1080/
+  ProxyPreserveHost Off
+
+</VirtualHost>
